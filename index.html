@@ -49,7 +49,7 @@
       margin: 0;
     }
   </style>
-<script src="/_aistudio-iframe.js?v=6634132a"></script></head>
+</head>
 <body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-sky-200">
 
   <!-- En-tête de navigation -->
@@ -108,7 +108,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Nom de la STEP -->
           <div>
             <label for="nomStep" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Nom de la Station d'Épuration (STEP) <span class="text-rose-500">*</span>
@@ -121,10 +120,8 @@
               class="w-full px-4 py-3 text-base rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-slate-50/50 transition"
               required
             >
-            <p id="err-nomStep" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
           </div>
 
-          <!-- Date de l'autosurveillance -->
           <div>
             <label for="dateAutosurveillance" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
               Date de l'autosurveillance <span class="text-rose-500">*</span>
@@ -136,10 +133,8 @@
               class="w-full px-4 py-3 text-base rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-slate-50/50 transition"
               required
             >
-            <p id="err-dateAutosurveillance" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
           </div>
 
-          <!-- Champs additionnels terrain -->
           <div>
             <label for="technicienNom" class="block text-xs font-semibold text-slate-600 mb-1.5">
               Technicien / Opérateur de traitement <span class="text-slate-400">(optionnel)</span>
@@ -175,280 +170,146 @@
       <!-- 2. Bilan Entrée & 3. Bilan Sortie -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        <!-- 2. BILAN ENTRÉE -->
+        <!-- BILAN ENTRÉE -->
         <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border-2 border-sky-200 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-sky-100">
               <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-sm">
-                  2
-                </div>
+                <div class="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-sm">2</div>
                 <div>
                   <h2 class="text-base font-bold text-sky-950">Bilan Entrée</h2>
                   <p class="text-xs text-sky-700">Prélèvement Eaux Brutes</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold px-2 py-1 rounded bg-sky-100 text-sky-800 border border-sky-200 uppercase">
-                Préleveur Entrée
-              </span>
+              <span class="text-[10px] font-bold px-2 py-1 rounded bg-sky-100 text-sky-800 border border-sky-200 uppercase">Entrée</span>
             </div>
 
             <div class="space-y-4">
               <div class="grid grid-cols-2 gap-3">
-                <!-- Date prélèvement -->
                 <div>
-                  <label for="entreeDate" class="block text-xs font-semibold text-slate-700 mb-1">
-                    Date prélèvement <span class="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="entreeDate"
-                    name="entreeDate"
-                    class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50/50"
-                    required
-                  >
-                  <p id="err-entreeDate" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
+                  <label for="entreeDate" class="block text-xs font-semibold text-slate-700 mb-1">Date prélèvement *</label>
+                  <input type="date" id="entreeDate" name="entreeDate" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 bg-slate-50/50" required>
                 </div>
-
-                <!-- Heure relève -->
                 <div>
-                  <label for="entreeHeure" class="block text-xs font-semibold text-slate-700 mb-1">
-                    Heure relève <span class="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="time"
-                    id="entreeHeure"
-                    name="entreeHeure"
-                    class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50/50"
-                    required
-                  >
-                  <p id="err-entreeHeure" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
+                  <label for="entreeHeure" class="block text-xs font-semibold text-slate-700 mb-1">Heure relève *</label>
+                  <input type="time" id="entreeHeure" name="entreeHeure" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 bg-slate-50/50" required>
                 </div>
               </div>
 
-              <!-- Température -->
               <div>
-                <label for="entreeTemperature" class="block text-xs font-semibold text-slate-700 mb-1 flex items-center justify-between">
-                  <span>Température préleveur (°C) <span class="text-rose-500">*</span></span>
-                  <span class="text-[11px] text-slate-400 font-normal">Norme : 2°C à 5°C</span>
+                <label for="entreeTemperature" class="block text-xs font-semibold text-slate-700 mb-1 flex justify-between">
+                  <span>Température préleveur (°C) *</span>
+                  <span class="text-[11px] text-slate-400">Norme : 2°C à 5°C</span>
                 </label>
                 <div class="relative">
-                  <input
-                    type="number"
-                    step="0.1"
-                    id="entreeTemperature"
-                    name="entreeTemperature"
-                    placeholder="ex: 3.4"
-                    class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50"
-                    required
-                  >
+                  <input type="number" step="0.1" id="entreeTemperature" name="entreeTemperature" placeholder="ex: 3.4" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">°C</span>
                 </div>
-                <p id="err-entreeTemperature" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Débit -->
               <div>
-                <label for="entreeDebit" class="block text-xs font-semibold text-slate-700 mb-1">
-                  Débit écoulé sur 24h (m³) <span class="text-rose-500">*</span>
-                </label>
+                <label for="entreeDebit" class="block text-xs font-semibold text-slate-700 mb-1">Débit écoulé sur 24h (m³) *</label>
                 <div class="relative">
-                  <input
-                    type="number"
-                    step="0.1"
-                    min="0"
-                    id="entreeDebit"
-                    name="entreeDebit"
-                    placeholder="ex: 1845.2"
-                    class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50"
-                    required
-                  >
+                  <input type="number" step="0.1" min="0" id="entreeDebit" name="entreeDebit" placeholder="ex: 1845.2" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">m³</span>
                 </div>
-                <p id="err-entreeDebit" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Capture Photo Entrée -->
+              <!-- Photo Entrée -->
               <div class="pt-2">
-                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-                  <span>Photo Préleveur Entrée <span class="text-rose-500">*</span></span>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+                  <span>Photo Préleveur Entrée *</span>
                   <span class="text-[11px] text-sky-600 font-medium">Caméra ou Fichier</span>
                 </label>
-
-                <input
-                  type="file"
-                  id="entreePhotoInput"
-                  accept="image/*"
-                  capture="environment"
-                  class="hidden"
-                >
-
-                <div id="entreePhotoBox" class="border-2 border-dashed border-slate-300 bg-sky-50/60 rounded-xl p-3 text-center cursor-pointer hover:bg-sky-100/85 active:scale-[0.99] transition relative overflow-hidden">
+                <input type="file" id="entreePhotoInput" accept="image/*" capture="environment" class="hidden">
+                <div id="entreePhotoBox" class="border-2 border-dashed border-slate-300 bg-sky-50/60 rounded-xl p-3 text-center cursor-pointer hover:bg-sky-100/85 transition relative overflow-hidden">
                   <div id="entreePlaceholder" class="space-y-2">
                     <div class="w-12 h-12 mx-auto rounded-full bg-sky-200/80 text-sky-700 flex items-center justify-center">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      </svg>
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <p class="text-xs font-bold text-sky-900">Prendre photo Entrée</p>
-                    <p class="text-[11px] text-slate-500">Appareil photo smartphone ou galerie</p>
                   </div>
-
                   <div id="entreePreviewContainer" class="hidden w-full h-full flex flex-col items-center">
                     <img id="entreePreviewImg" src="" alt="Aperçu Entrée" class="w-full h-36 object-cover rounded-lg shadow-sm border border-slate-200">
                     <div class="mt-2 flex items-center gap-2">
-                      <button type="button" id="btnChangeEntreePhoto" class="text-xs px-2.5 py-1 bg-white border border-slate-300 rounded shadow-sm text-slate-700 hover:bg-slate-50 font-medium">
-                        Reprendre
-                      </button>
-                      <button type="button" id="btnDeleteEntreePhoto" class="text-xs px-2.5 py-1 bg-rose-50 border border-rose-200 rounded shadow-sm text-rose-600 hover:bg-rose-100 font-medium">
-                        Supprimer
-                      </button>
+                      <button type="button" id="btnChangeEntreePhoto" class="text-xs px-2.5 py-1 bg-white border rounded shadow-sm text-slate-700">Reprendre</button>
+                      <button type="button" id="btnDeleteEntreePhoto" class="text-xs px-2.5 py-1 bg-rose-50 border border-rose-200 rounded shadow-sm text-rose-600">Supprimer</button>
                     </div>
                   </div>
                 </div>
-                <p id="err-entreePhoto" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
-
             </div>
           </div>
         </section>
 
-        <!-- 3. BILAN SORTIE -->
+        <!-- BILAN SORTIE -->
         <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border-2 border-emerald-200 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-emerald-100">
               <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">
-                  3
-                </div>
+                <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">3</div>
                 <div>
                   <h2 class="text-base font-bold text-emerald-950">Bilan Sortie</h2>
                   <p class="text-xs text-emerald-700">Prélèvement Eaux Traitées / Rejet</p>
                 </div>
               </div>
-              <span class="text-[10px] font-bold px-2 py-1 rounded bg-emerald-100 text-emerald-800 border border-emerald-200 uppercase">
-                Préleveur Sortie
-              </span>
+              <span class="text-[10px] font-bold px-2 py-1 rounded bg-emerald-100 text-emerald-800 border border-emerald-200 uppercase">Sortie</span>
             </div>
 
             <div class="space-y-4">
               <div class="grid grid-cols-2 gap-3">
-                <!-- Date prélèvement -->
                 <div>
-                  <label for="sortieDate" class="block text-xs font-semibold text-slate-700 mb-1">
-                    Date prélèvement <span class="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="sortieDate"
-                    name="sortieDate"
-                    class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50"
-                    required
-                  >
-                  <p id="err-sortieDate" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
+                  <label for="sortieDate" class="block text-xs font-semibold text-slate-700 mb-1">Date prélèvement *</label>
+                  <input type="date" id="sortieDate" name="sortieDate" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 bg-slate-50/50" required>
                 </div>
-
-                <!-- Heure relève -->
                 <div>
-                  <label for="sortieHeure" class="block text-xs font-semibold text-slate-700 mb-1">
-                    Heure relève <span class="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="time"
-                    id="sortieHeure"
-                    name="sortieHeure"
-                    class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50"
-                    required
-                  >
-                  <p id="err-sortieHeure" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
+                  <label for="sortieHeure" class="block text-xs font-semibold text-slate-700 mb-1">Heure relève *</label>
+                  <input type="time" id="sortieHeure" name="sortieHeure" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 bg-slate-50/50" required>
                 </div>
               </div>
 
-              <!-- Température -->
               <div>
-                <label for="sortieTemperature" class="block text-xs font-semibold text-slate-700 mb-1 flex items-center justify-between">
-                  <span>Température préleveur (°C) <span class="text-rose-500">*</span></span>
-                  <span class="text-[11px] text-slate-400 font-normal">Norme : 2°C à 5°C</span>
+                <label for="sortieTemperature" class="block text-xs font-semibold text-slate-700 mb-1 flex justify-between">
+                  <span>Température préleveur (°C) *</span>
+                  <span class="text-[11px] text-slate-400">Norme : 2°C à 5°C</span>
                 </label>
                 <div class="relative">
-                  <input
-                    type="number"
-                    step="0.1"
-                    id="sortieTemperature"
-                    name="sortieTemperature"
-                    placeholder="ex: 3.8"
-                    class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50"
-                    required
-                  >
+                  <input type="number" step="0.1" id="sortieTemperature" name="sortieTemperature" placeholder="ex: 3.8" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">°C</span>
                 </div>
-                <p id="err-sortieTemperature" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Débit -->
               <div>
-                <label for="sortieDebit" class="block text-xs font-semibold text-slate-700 mb-1">
-                  Débit écoulé sur 24h (m³) <span class="text-rose-500">*</span>
-                </label>
+                <label for="sortieDebit" class="block text-xs font-semibold text-slate-700 mb-1">Débit écoulé sur 24h (m³) *</label>
                 <div class="relative">
-                  <input
-                    type="number"
-                    step="0.1"
-                    min="0"
-                    id="sortieDebit"
-                    name="sortieDebit"
-                    placeholder="ex: 1812.0"
-                    class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50"
-                    required
-                  >
+                  <input type="number" step="0.1" min="0" id="sortieDebit" name="sortieDebit" placeholder="ex: 1812.0" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">m³</span>
                 </div>
-                <p id="err-sortieDebit" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
 
-              <!-- Capture Photo Sortie -->
+              <!-- Photo Sortie -->
               <div class="pt-2">
-                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-                  <span>Photo Préleveur Sortie <span class="text-rose-500">*</span></span>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex justify-between">
+                  <span>Photo Préleveur Sortie *</span>
                   <span class="text-[11px] text-emerald-600 font-medium">Caméra ou Fichier</span>
                 </label>
-
-                <input
-                  type="file"
-                  id="sortiePhotoInput"
-                  accept="image/*"
-                  capture="environment"
-                  class="hidden"
-                >
-
-                <div id="sortiePhotoBox" class="border-2 border-dashed border-slate-300 bg-emerald-50/60 rounded-xl p-3 text-center cursor-pointer hover:bg-emerald-100/85 active:scale-[0.99] transition relative overflow-hidden">
+                <input type="file" id="sortiePhotoInput" accept="image/*" capture="environment" class="hidden">
+                <div id="sortiePhotoBox" class="border-2 border-dashed border-slate-300 bg-emerald-50/60 rounded-xl p-3 text-center cursor-pointer hover:bg-emerald-100/85 transition relative overflow-hidden">
                   <div id="sortiePlaceholder" class="space-y-2">
                     <div class="w-12 h-12 mx-auto rounded-full bg-emerald-200/80 text-emerald-700 flex items-center justify-center">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      </svg>
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <p class="text-xs font-bold text-emerald-950">Prendre photo Sortie</p>
-                    <p class="text-[11px] text-slate-500">Appareil photo smartphone ou galerie</p>
                   </div>
-
                   <div id="sortiePreviewContainer" class="hidden w-full h-full flex flex-col items-center">
                     <img id="sortiePreviewImg" src="" alt="Aperçu Sortie" class="w-full h-36 object-cover rounded-lg shadow-sm border border-slate-200">
                     <div class="mt-2 flex items-center gap-2">
-                      <button type="button" id="btnChangeSortiePhoto" class="text-xs px-2.5 py-1 bg-white border border-slate-300 rounded shadow-sm text-slate-700 hover:bg-slate-50 font-medium">
-                        Reprendre
-                      </button>
-                      <button type="button" id="btnDeleteSortiePhoto" class="text-xs px-2.5 py-1 bg-rose-50 border border-rose-200 rounded shadow-sm text-rose-600 hover:bg-rose-100 font-medium">
-                        Supprimer
-                      </button>
+                      <button type="button" id="btnChangeSortiePhoto" class="text-xs px-2.5 py-1 bg-white border rounded shadow-sm text-slate-700">Reprendre</button>
+                      <button type="button" id="btnDeleteSortiePhoto" class="text-xs px-2.5 py-1 bg-rose-50 border border-rose-200 rounded shadow-sm text-rose-600">Supprimer</button>
                     </div>
                   </div>
                 </div>
-                <p id="err-sortiePhoto" class="text-xs text-rose-500 font-medium mt-1 hidden"></p>
               </div>
-
             </div>
           </div>
         </section>
@@ -457,84 +318,32 @@
 
       <!-- Observations -->
       <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
-        <label for="observations" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-          <span>Remarques / Événements d'exploitation <span class="text-slate-400 font-normal">(optionnel)</span></span>
-        </label>
-        <textarea
-          id="observations"
-          name="observations"
-          rows="2"
-          placeholder="Renseignez ici d'éventuelles observations..."
-          class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none bg-slate-50/30"
-        ></textarea>
+        <label for="observations" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Remarques / Événements d'exploitation (optionnel)</label>
+        <textarea id="observations" name="observations" rows="2" placeholder="Observations terrain..." class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 resize-none bg-slate-50/30"></textarea>
       </section>
 
-      <!-- 4. Validation & Sauvegarde -->
+      <!-- Bouton Validation -->
       <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-700">
         <div class="flex items-center gap-2.5 pb-3 mb-4 border-b border-slate-700">
-          <div class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">
-            4
-          </div>
+          <div class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">4</div>
           <div>
-            <h2 class="text-base sm:text-lg font-bold text-white">
-              Génération &amp; Sauvegarde du Rapport
-            </h2>
-            <p class="text-xs text-slate-300">
-              Sauvegarde dans Google Drive (dossier « Autocontrôle ») et téléchargement direct
-            </p>
+            <h2 class="text-base sm:text-lg font-bold text-white">Génération &amp; Sauvegarde du Rapport</h2>
+            <p class="text-xs text-slate-300">Google Drive (« Autocontrôle ») et téléchargement direct</p>
           </div>
         </div>
 
-        <div class="space-y-4">
-          <div class="p-4 rounded-xl bg-slate-800/90 border border-slate-700 flex items-start gap-3.5">
-            <div class="w-10 h-10 rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                <span>Google Drive • Dossier « Autocontrôle »</span>
-              </h3>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                Le rapport officiel d'autosurveillance est archivé automatiquement.
-              </p>
-            </div>
-          </div>
-
-          <div id="validationBanner" class="hidden p-3.5 rounded-xl bg-rose-950/70 border border-rose-500/50 text-rose-200 text-xs">
-            <div class="flex items-center gap-2 font-bold mb-1">
-              <span>Veuillez compléter tous les champs obligatoires :</span>
-            </div>
-            <ul id="validationList" class="list-disc list-inside space-y-0.5 text-rose-300 pl-1"></ul>
-          </div>
-
-          <div class="pt-2">
-            <button
-              type="submit"
-              id="btnSubmit"
-              class="w-full py-4 px-6 rounded-xl font-extrabold text-base sm:text-lg bg-gradient-to-r from-emerald-500 via-teal-600 to-sky-600 hover:from-emerald-400 hover:to-sky-500 active:scale-[0.99] text-white shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-3 transition cursor-pointer"
-            >
-              <svg id="btnIconSend" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
-              <svg id="btnSpinner" class="w-6 h-6 animate-spin hidden text-white" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              <span id="btnText">Générer &amp; Enregistrer le Rapport PDF</span>
-            </button>
-          </div>
-        </div>
+        <button type="submit" id="btnSubmit" class="w-full py-4 px-6 rounded-xl font-extrabold text-base sm:text-lg bg-gradient-to-r from-emerald-500 via-teal-600 to-sky-600 hover:from-emerald-400 hover:to-sky-500 text-white shadow-lg flex items-center justify-center gap-3 transition cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>Générer &amp; Enregistrer le Rapport PDF</span>
+        </button>
       </section>
 
     </form>
   </main>
 
-  <!-- Script de gestion des photos et du formulaire -->
+  <!-- Script complet -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Date du jour par défaut
       const today = new Date().toISOString().split('T')[0];
       document.getElementById('dateAutosurveillance').value = today;
       document.getElementById('entreeDate').value = today;
@@ -543,14 +352,11 @@
       let entreePhotoData = null;
       let sortiePhotoData = null;
 
-      // Gestion clic box Entrée -> ouvre l'input file caché
-      const entreeBox = document.getElementById('entreePhotoBox');
-      const entreeInput = document.getElementById('entreePhotoInput');
-      entreeBox.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'BUTTON') entreeInput.click();
+      // Entrée photo click
+      document.getElementById('entreePhotoBox').addEventListener('click', (e) => {
+        if (e.target.tagName !== 'BUTTON') document.getElementById('entreePhotoInput').click();
       });
-
-      entreeInput.addEventListener('change', (e) => {
+      document.getElementById('entreePhotoInput').addEventListener('change', (e) => {
         const file = e.target.files[0];
         if (file) {
           const reader = new FileReader();
@@ -563,25 +369,21 @@
           reader.readAsDataURL(file);
         }
       });
-
-      document.getElementById('btnChangeEntreePhoto').addEventListener('click', () => entreeInput.click());
+      document.getElementById('btnChangeEntreePhoto').addEventListener('click', () => document.getElementById('entreePhotoInput').click());
       document.getElementById('btnDeleteEntreePhoto').addEventListener('click', (e) => {
         e.stopPropagation();
         entreePhotoData = null;
-        entreeInput.value = '';
+        document.getElementById('entreePhotoInput').value = '';
         document.getElementById('entreePreviewImg').src = '';
         document.getElementById('entreePreviewContainer').classList.add('hidden');
         document.getElementById('entreePlaceholder').classList.remove('hidden');
       });
 
-      // Gestion clic box Sortie -> ouvre l'input file caché
-      const sortieBox = document.getElementById('sortiePhotoBox');
-      const sortieInput = document.getElementById('sortiePhotoInput');
-      sortieBox.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'BUTTON') sortieInput.click();
+      // Sortie photo click
+      document.getElementById('sortiePhotoBox').addEventListener('click', (e) => {
+        if (e.target.tagName !== 'BUTTON') document.getElementById('sortiePhotoInput').click();
       });
-
-      sortieInput.addEventListener('change', (e) => {
+      document.getElementById('sortiePhotoInput').addEventListener('change', (e) => {
         const file = e.target.files[0];
         if (file) {
           const reader = new FileReader();
@@ -594,12 +396,11 @@
           reader.readAsDataURL(file);
         }
       });
-
-      document.getElementById('btnChangeSortiePhoto').addEventListener('click', () => sortieInput.click());
+      document.getElementById('btnChangeSortiePhoto').addEventListener('click', () => document.getElementById('sortiePhotoInput').click());
       document.getElementById('btnDeleteSortiePhoto').addEventListener('click', (e) => {
         e.stopPropagation();
         sortiePhotoData = null;
-        sortieInput.value = '';
+        document.getElementById('sortiePhotoInput').value = '';
         document.getElementById('sortiePreviewImg').src = '';
         document.getElementById('sortiePreviewContainer').classList.add('hidden');
         document.getElementById('sortiePlaceholder').classList.remove('hidden');
@@ -635,50 +436,49 @@
         }
       });
 
-      // Soumission / Génération PDF
+      // Génération PDF soignée
       document.getElementById('stepForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // Vérification basique des champs requis
         const nomStep = document.getElementById('nomStep').value;
-        if (!nomStep) {
-          alert("Veuillez renseigner le nom de la STEP.");
-          document.getElementById('nomStep').focus();
-          return;
-        }
-        if (!entreePhotoData || !sortiePhotoData) {
-          alert("Veuillez inclure les photos d'entrée et de sortie.");
-          return;
-        }
+        if (!nomStep) { alert("Veuillez renseigner le nom de la STEP."); return; }
+        if (!entreePhotoData || !sortiePhotoData) { alert("Veuillez inclure les photos d'entrée et de sortie."); return; }
 
-        // Génération du PDF avec jsPDF
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
         
         doc.setFont("helvetica", "bold");
         doc.setFontSize(16);
+        doc.setTextColor(15, 76, 129);
         doc.text("RAPPORT D'AUTOSURVEILLANCE - TERRAIN", 14, 20);
         
         doc.setFontSize(10);
+        doc.setTextColor(50, 50, 50);
+        doc.text(`STEP : ${nomStep}`, 14, 28);
+        doc.text(`Date : ${document.getElementById('dateAutosurveillance').value}`, 14, 34);
+        doc.text(`Opérateur : ${document.getElementById('technicienNom').value || 'Non renseigné'}`, 14, 40);
+        doc.text(`Météo : ${document.getElementById('meteo').value || 'Non renseignée'}`, 120, 34);
+
+        doc.setFont("helvetica", "bold");
+        doc.text("Bilan Entrée (Eaux Brutes)", 14, 50);
         doc.setFont("helvetica", "normal");
-        doc.text(`STEP : ${nomStep}`, 14, 30);
-        doc.text(`Date : ${document.getElementById('dateAutosurveillance').value}`, 14, 36);
-        doc.text(`Opérateur : ${document.getElementById('technicienNom').value || 'Non renseigné'}`, 14, 42);
+        doc.text(`- Température : ${document.getElementById('entreeTemperature').value} °C`, 18, 56);
+        doc.text(`- Débit 24h : ${document.getElementById('entreeDebit').value} m3`, 18, 62);
 
-        doc.text(`Entrée - Temp : ${document.getElementById('entreeTemperature').value}°C | Débit : ${document.getElementById('entreeDebit').value} m3`, 14, 52);
-        doc.text(`Sortie - Temp : ${document.getElementById('sortieTemperature').value}°C | Débit : ${document.getElementById('sortieDebit').value} m3`, 14, 58);
+        doc.setFont("helvetica", "bold");
+        doc.text("Bilan Sortie (Eaux Traitées)", 110, 50);
+        doc.setFont("helvetica", "normal");
+        doc.text(`- Température : ${document.getElementById('sortieTemperature').value} °C`, 114, 56);
+        doc.text(`- Débit 24h : ${document.getElementById('sortieDebit').value} m3`, 114, 62);
 
-        // Ajout des photos dans le PDF si présentes
         if (entreePhotoData) {
-          doc.text("Photo Préleveur Entrée :", 14, 70);
-          doc.addImage(entreePhotoData, 'JPEG', 14, 75, 80, 60);
+          doc.text("Photo Entrée :", 14, 72);
+          doc.addImage(entreePhotoData, 'JPEG', 14, 76, 85, 60);
         }
         if (sortiePhotoData) {
-          doc.text("Photo Préleveur Sortie :", 110, 70);
-          doc.addImage(sortiePhotoData, 'JPEG', 110, 75, 80, 60);
+          doc.text("Photo Sortie :", 110, 72);
+          doc.addImage(sortiePhotoData, 'JPEG', 110, 76, 85, 60);
         }
 
-        // Téléchargement direct
         doc.save(`Rapport_Autosurveillance_${new Date().toISOString().slice(0,10)}.pdf`);
         alert("Rapport PDF généré et téléchargé avec succès !");
       });
