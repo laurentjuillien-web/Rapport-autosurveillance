@@ -116,7 +116,7 @@
               type="text"
               id="nomStep"
               name="nomStep"
-              placeholder="ex: STEP du Val d'Allier (50 000 EH)"
+              placeholder="ex: GODERVILLE"
               class="w-full px-4 py-3 text-base rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-slate-50/50 transition"
               required
             >
@@ -143,7 +143,7 @@
               type="text"
               id="technicienNom"
               name="technicienNom"
-              placeholder="ex: L. Juillien"
+              placeholder="ex: LAURENT JUILLIEN"
               class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white"
             >
           </div>
@@ -158,7 +158,7 @@
               class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white"
             >
               <option value="">Sélectionner...</option>
-              <option value="Temps sec">Temps sec / Ensoleillé</option>
+              <option value="Temps sec">Temps sec</option>
               <option value="Pluvieux">Pluvieux / Humide</option>
               <option value="Fortes précipitations">Fortes précipitations / Orage</option>
               <option value="Froid / Gel">Froid / Période de gel</option>
@@ -202,7 +202,7 @@
                   <span class="text-[11px] text-slate-400">Norme : 2°C à 5°C</span>
                 </label>
                 <div class="relative">
-                  <input type="number" step="0.1" id="entreeTemperature" name="entreeTemperature" placeholder="ex: 3.4" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
+                  <input type="number" step="0.1" id="entreeTemperature" name="entreeTemperature" placeholder="ex: 3.1" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">°C</span>
                 </div>
               </div>
@@ -210,7 +210,7 @@
               <div>
                 <label for="entreeDebit" class="block text-xs font-semibold text-slate-700 mb-1">Débit écoulé sur 24h (m³) *</label>
                 <div class="relative">
-                  <input type="number" step="0.1" min="0" id="entreeDebit" name="entreeDebit" placeholder="ex: 1845.2" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
+                  <input type="number" step="0.1" min="0" id="entreeDebit" name="entreeDebit" placeholder="ex: 121" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-sky-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">m³</span>
                 </div>
               </div>
@@ -274,7 +274,7 @@
                   <span class="text-[11px] text-slate-400">Norme : 2°C à 5°C</span>
                 </label>
                 <div class="relative">
-                  <input type="number" step="0.1" id="sortieTemperature" name="sortieTemperature" placeholder="ex: 3.8" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
+                  <input type="number" step="0.1" id="sortieTemperature" name="sortieTemperature" placeholder="ex: 3.2" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">°C</span>
                 </div>
               </div>
@@ -282,7 +282,7 @@
               <div>
                 <label for="sortieDebit" class="block text-xs font-semibold text-slate-700 mb-1">Débit écoulé sur 24h (m³) *</label>
                 <div class="relative">
-                  <input type="number" step="0.1" min="0" id="sortieDebit" name="sortieDebit" placeholder="ex: 1812.0" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
+                  <input type="number" step="0.1" min="0" id="sortieDebit" name="sortieDebit" placeholder="ex: 142" class="w-full pl-3.5 pr-12 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 font-mono-numbers bg-slate-50/50" required>
                   <span class="absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">m³</span>
                 </div>
               </div>
@@ -341,7 +341,7 @@
     </form>
   </main>
 
-  <!-- Script complet -->
+  <!-- Script de gestion photos & PDF au design professionnel d'origine -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const today = new Date().toISOString().split('T')[0];
@@ -352,7 +352,7 @@
       let entreePhotoData = null;
       let sortiePhotoData = null;
 
-      // Entrée photo click
+      // Click zone Entrée
       document.getElementById('entreePhotoBox').addEventListener('click', (e) => {
         if (e.target.tagName !== 'BUTTON') document.getElementById('entreePhotoInput').click();
       });
@@ -379,7 +379,7 @@
         document.getElementById('entreePlaceholder').classList.remove('hidden');
       });
 
-      // Sortie photo click
+      // Click zone Sortie
       document.getElementById('sortiePhotoBox').addEventListener('click', (e) => {
         if (e.target.tagName !== 'BUTTON') document.getElementById('sortiePhotoInput').click();
       });
@@ -406,21 +406,21 @@
         document.getElementById('sortiePlaceholder').classList.remove('hidden');
       });
 
-      // Exemple rapide
+      // Bouton Exemple
       document.getElementById('btnExemple').addEventListener('click', () => {
-        document.getElementById('nomStep').value = "STEP de Criquetot (10 000 EH)";
-        document.getElementById('technicienNom').value = "Laurent Juillien";
+        document.getElementById('nomStep').value = "GODERVILLE";
+        document.getElementById('technicienNom').value = "LAURENT JUILLIEN";
         document.getElementById('meteo').value = "Temps sec";
-        document.getElementById('entreeHeure').value = "08:00";
-        document.getElementById('entreeTemperature').value = "3.5";
-        document.getElementById('entreeDebit').value = "1250.4";
-        document.getElementById('sortieHeure').value = "08:15";
-        document.getElementById('sortieTemperature').value = "4.1";
-        document.getElementById('sortieDebit').value = "1220.0";
+        document.getElementById('entreeHeure').value = "16:10";
+        document.getElementById('entreeTemperature').value = "3.1";
+        document.getElementById('entreeDebit').value = "121";
+        document.getElementById('sortieHeure').value = "16:10";
+        document.getElementById('sortieTemperature').value = "3.2";
+        document.getElementById('sortieDebit').value = "142";
         document.getElementById('observations').value = "Contrôle visuel RAS, préleveurs OK.";
       });
 
-      // Reset
+      // Bouton Reset
       document.getElementById('btnReset').addEventListener('click', () => {
         if(confirm("Effacer tous les champs ?")) {
           document.getElementById('stepForm').reset();
@@ -436,51 +436,198 @@
         }
       });
 
-      // Génération PDF soignée
+      // Génération PDF au design original
       document.getElementById('stepForm').addEventListener('submit', (e) => {
         e.preventDefault();
+
         const nomStep = document.getElementById('nomStep').value;
         if (!nomStep) { alert("Veuillez renseigner le nom de la STEP."); return; }
         if (!entreePhotoData || !sortiePhotoData) { alert("Veuillez inclure les photos d'entrée et de sortie."); return; }
 
         const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        
+        const doc = new jsPDF('p', 'mm', 'a4');
+
+        // Header bleu principal
+        doc.setFillColor(15, 76, 129); // #0f4c81
+        doc.rect(10, 10, 190, 18, 'F');
+        doc.setTextColor(255, 255, 255);
         doc.setFont("helvetica", "bold");
-        doc.setFontSize(16);
+        doc.setFontSize(13);
+        doc.text("BILAN D'AUTOSURVEILLANCE 24H — STATION D'ÉPURATION", 14, 18);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "normal");
+        doc.text("CONTRÔLE RÉGLEMENTAIRE TERRAIN • PRÉLÈVEMENTS & MESURES OFFICIELLES", 14, 24);
+
+        const now = new Date();
+        const refDate = now.toISOString().slice(0,10).replace(/-/g,'');
+        doc.text(`Réf : AS-${refDate}`, 195, 16, { align: 'right' });
+        doc.text(`Édité le : ${now.toLocaleDateString('fr-FR')} ${now.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'})}`, 195, 22, { align: 'right' });
+
+        // Section Infos Générales
+        doc.setFillColor(248, 250, 252);
+        doc.setDrawColor(226, 232, 240);
+        doc.roundedRect(10, 31, 190, 16, 2, 2, 'FD');
         doc.setTextColor(15, 76, 129);
-        doc.text("RAPPORT D'AUTOSURVEILLANCE - TERRAIN", 14, 20);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(50, 50, 50);
-        doc.text(`STEP : ${nomStep}`, 14, 28);
-        doc.text(`Date : ${document.getElementById('dateAutosurveillance').value}`, 14, 34);
-        doc.text(`Opérateur : ${document.getElementById('technicienNom').value || 'Non renseigné'}`, 14, 40);
-        doc.text(`Météo : ${document.getElementById('meteo').value || 'Non renseignée'}`, 120, 34);
-
         doc.setFont("helvetica", "bold");
-        doc.text("Bilan Entrée (Eaux Brutes)", 14, 50);
-        doc.setFont("helvetica", "normal");
-        doc.text(`- Température : ${document.getElementById('entreeTemperature').value} °C`, 18, 56);
-        doc.text(`- Débit 24h : ${document.getElementById('entreeDebit').value} m3`, 18, 62);
+        doc.setFontSize(9);
+        doc.text(`STATION D'ÉPURATION :  ${nomStep.toUpperCase()}`, 14, 38);
 
+        doc.setFontSize(8);
+        doc.setTextColor(100, 116, 139);
+        doc.text(`Date du bilan : `, 14, 43);
+        doc.setTextColor(30, 41, 59);
         doc.setFont("helvetica", "bold");
-        doc.text("Bilan Sortie (Eaux Traitées)", 110, 50);
-        doc.setFont("helvetica", "normal");
-        doc.text(`- Température : ${document.getElementById('sortieTemperature').value} °C`, 114, 56);
-        doc.text(`- Débit 24h : ${document.getElementById('sortieDebit').value} m3`, 114, 62);
+        doc.text(`${document.getElementById('dateAutosurveillance').value}`, 35, 43);
 
+        doc.setTextColor(100, 116, 139);
+        doc.setFont("helvetica", "normal");
+        doc.text(`Technicien : `, 90, 43);
+        doc.setTextColor(30, 41, 59);
+        doc.setFont("helvetica", "bold");
+        doc.text(`${document.getElementById('technicienNom').value || 'Laurent Juillien'}`, 108, 43);
+
+        doc.setTextColor(100, 116, 139);
+        doc.setFont("helvetica", "normal");
+        doc.text(`Météo 24h : `, 150, 43);
+        doc.setTextColor(30, 41, 59);
+        doc.setFont("helvetica", "bold");
+        doc.text(`${document.getElementById('meteo').value || 'Temps sec'}`, 167, 43);
+
+        // Bilan Entrée
+        doc.setFillColor(3, 105, 161);
+        doc.rect(10, 50, 92, 8, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(9);
+        doc.text("BILAN ENTRÉE (Eaux Brutes)", 14, 55.5);
+
+        doc.setFillColor(240, 249, 255);
+        doc.setDrawColor(186, 230, 253);
+        doc.rect(10, 58, 92, 32, 'FD');
+
+        doc.setTextColor(100, 116, 139);
+        doc.setFontSize(7.5);
+        doc.setFont("helvetica", "normal");
+        doc.text("Date du prélèvement", 14, 64);
+        doc.text("Heure de relève", 14, 71);
+        doc.text("Température préleveur", 14, 78);
+        doc.text("Débit écoulé sur 24h", 14, 85);
+
+        doc.setTextColor(15, 23, 42);
+        doc.setFont("helvetica", "bold");
+        doc.text(`${document.getElementById('entreeDate').value}`, 98, 64, { align: 'right' });
+        doc.text(`${document.getElementById('entreeHeure').value}`, 98, 71, { align: 'right' });
+
+        const tEntree = parseFloat(document.getElementById('entreeTemperature').value);
+        doc.text(`${tEntree.toFixed(1)} °C`, 98, 78, { align: 'right' });
+        doc.setFontSize(6.5);
+        doc.setTextColor(5, 150, 105);
+        doc.text("Conforme [2°C - 5°C]", 98, 81, { align: 'right' });
+
+        doc.setFontSize(9);
+        doc.setTextColor(3, 105, 161);
+        doc.text(`${document.getElementById('entreeDebit').value} m³`, 98, 86.5, { align: 'right' });
+
+        // Bilan Sortie
+        doc.setFillColor(5, 150, 105);
+        doc.rect(108, 50, 92, 8, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(9);
+        doc.setFont("helvetica", "bold");
+        doc.text("BILAN SORTIE (Rejet Traité)", 112, 55.5);
+
+        doc.setFillColor(236, 253, 245);
+        doc.setDrawColor(167, 243, 208);
+        doc.rect(108, 58, 92, 32, 'FD');
+
+        doc.setTextColor(100, 116, 139);
+        doc.setFontSize(7.5);
+        doc.setFont("helvetica", "normal");
+        doc.text("Date du prélèvement", 112, 64);
+        doc.text("Heure de relève", 112, 71);
+        doc.text("Température préleveur", 112, 78);
+        doc.text("Débit écoulé sur 24h", 112, 85);
+
+        doc.setTextColor(15, 23, 42);
+        doc.setFont("helvetica", "bold");
+        doc.text(`${document.getElementById('sortieDate').value}`, 196, 64, { align: 'right' });
+        doc.text(`${document.getElementById('sortieHeure').value}`, 196, 71, { align: 'right' });
+
+        const tSortie = parseFloat(document.getElementById('sortieTemperature').value);
+        doc.text(`${tSortie.toFixed(1)} °C`, 196, 78, { align: 'right' });
+        doc.setFontSize(6.5);
+        doc.setTextColor(5, 150, 105);
+        doc.text("Conforme [2°C - 5°C]", 196, 81, { align: 'right' });
+
+        doc.setFontSize(9);
+        doc.setTextColor(5, 150, 105);
+        doc.text(`${document.getElementById('sortieDebit').value} m³`, 196, 86.5, { align: 'right' });
+
+        // Encadré Calcul Ratio
+        const dEntree = parseFloat(document.getElementById('entreeDebit').value) || 1;
+        const dSortie = parseFloat(document.getElementById('sortieDebit').value) || 0;
+        const ratio = ((dSortie / dEntree) * 100).toFixed(1);
+        const ecart = (dSortie - dEntree).toFixed(1);
+
+        doc.setFillColor(241, 245, 249);
+        doc.setDrawColor(203, 213, 225);
+        doc.roundedRect(10, 93, 190, 7, 1.5, 1.5, 'FD');
+        doc.setFontSize(7.5);
+        doc.setTextColor(15, 76, 129);
+        doc.setFont("helvetica", "bold");
+        doc.text(`Calcul volumétrique : Ratio Débit Sortie / Entrée = ${ratio}% (Écart hydraulique : ${ecart >= 0 ? '+' : ''}${ecart} m³)`, 105, 97.5, { align: 'center' });
+
+        // Titre Section Photos
+        doc.setTextColor(15, 76, 129);
+        doc.setFontSize(9);
+        doc.text("PHOTOGRAPHIES DES PRÉLÈVEMENTS ET PRÉLEVEURS DE TERRAIN", 10, 105);
+
+        // Photo Entrée Frame
+        doc.setFillColor(3, 105, 161);
+        doc.rect(10, 108, 92, 6, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(7.5);
+        doc.text("PHOTO : PRÉLEVEUR ENTRÉE (Eaux Brutes)", 14, 112);
+
+        doc.setFillColor(248, 250, 252);
+        doc.setDrawColor(226, 232, 240);
+        doc.rect(10, 114, 92, 82, 'FD');
         if (entreePhotoData) {
-          doc.text("Photo Entrée :", 14, 72);
-          doc.addImage(entreePhotoData, 'JPEG', 14, 76, 85, 60);
+          doc.addImage(entreePhotoData, 'JPEG', 12, 116, 88, 72);
         }
-        if (sortiePhotoData) {
-          doc.text("Photo Sortie :", 110, 72);
-          doc.addImage(sortiePhotoData, 'JPEG', 110, 76, 85, 60);
-        }
+        doc.setFontSize(6.5);
+        doc.setTextColor(100, 116, 139);
+        doc.text(`Prise le ${document.getElementById('entreeDate').value} à ${document.getElementById('entreeHeure').value} • T: ${tEntree}°C • Q: ${dEntree} m³`, 12, 193);
 
-        doc.save(`Rapport_Autosurveillance_${new Date().toISOString().slice(0,10)}.pdf`);
-        alert("Rapport PDF généré et téléchargé avec succès !");
+        // Photo Sortie Frame
+        doc.setFillColor(5, 150, 105);
+        doc.rect(108, 108, 92, 6, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(7.5);
+        doc.text("PHOTO : PRÉLEVEUR SORTIE (Rejet Traité)", 112, 112);
+
+        doc.setFillColor(248, 250, 252);
+        doc.setDrawColor(226, 232, 240);
+        doc.rect(108, 114, 92, 82, 'FD');
+        if (sortiePhotoData) {
+          doc.addImage(sortiePhotoData, 'JPEG', 110, 116, 88, 72);
+        }
+        doc.setFontSize(6.5);
+        doc.setTextColor(100, 116, 139);
+        doc.text(`Prise le ${document.getElementById('sortieDate').value} à ${document.getElementById('sortieHeure').value} • T: ${tSortie}°C • Q: ${dSortie} m³`, 110, 193);
+
+        // Footer
+        doc.setDrawColor(226, 232, 240);
+        doc.line(10, 280, 200, 280);
+        doc.setFontSize(6.5);
+        doc.setTextColor(148, 163, 184);
+        doc.text("Archivage officiel : Google Drive / Autocontrôle", 10, 284);
+        doc.text("Fiche d'autosurveillance certifiée conforme — Prélèvements 24 heures", 10, 287);
+        doc.text("Créé par Laurent Juillien", 200, 284, { align: 'right' });
+
+        // Sauvegarde
+        const filename = `Bilan_Autosurveillance_${nomStep.replace(/[^a-zA-Z0-9]/g, '_')}_${document.getElementById('dateAutosurveillance').value.replace(/-/g,'')}.pdf`;
+        doc.save(filename);
+        alert("Rapport PDF officiel généré et téléchargé avec succès !");
       });
     });
   </script>
